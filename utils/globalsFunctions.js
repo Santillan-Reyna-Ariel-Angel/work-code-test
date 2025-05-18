@@ -103,12 +103,12 @@ export const sendEmailWithRetry = ({ transport, mailOptions }) => {
           setTimeout(attemptSend, delay);
         } else {
           console.log(
-            'Maximum number of attempts reached. The email could not be sent.'
+            'Maximum number of attempts reached. The email could not be sent.',
           );
         }
       } else {
         console.log(
-          `Email sent successfully on attempt ${currentAttempt}: ${info.response}`
+          `Email sent successfully on attempt ${currentAttempt}: ${info.response}`,
         );
       }
     });

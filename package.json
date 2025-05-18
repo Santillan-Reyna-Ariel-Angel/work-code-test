@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "@getbrevo/brevo": "^2.2.0",
-    "nodemailer": "^7.0.3"
+    "nodemailer": "^7.0.3",
+    "resend": "^4.5.1"
   }
 }
