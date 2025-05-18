@@ -2,6 +2,10 @@ import { Resend } from 'resend';
 import { data } from './dataSaveFailed.js';
 import { generateHTMLTable } from './utils/globalsFunctions.js';
 
+// free plan
+// Monthly Limit: 3,000
+// Daily Limit: 100
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const htmlContent = generateHTMLTable(data);
