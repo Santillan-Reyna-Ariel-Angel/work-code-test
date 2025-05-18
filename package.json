@@ -8,5 +8,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@getbrevo/brevo": "^2.2.0",
+    "nodemailer": "^7.0.3"
+  }
 }
