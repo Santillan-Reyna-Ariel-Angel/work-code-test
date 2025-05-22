@@ -10,28 +10,28 @@ db.serialize(() => {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL UNIQUE
     )
-    `);
+  `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS Environment (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL UNIQUE
     )
-    `);
+  `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS TestDataFile (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL
     )
-    `);
+  `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS Folder (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL
     )
-    `);
+  `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS RunData (
@@ -41,11 +41,11 @@ db.serialize(() => {
         testDataFileId INTEGER,
         folderId INTEGER,
 
-        FOREIGN KEY (environmentId) REFERENCES Environment(id),
-        FOREIGN KEY (testDataFileId) REFERENCES TestDataFile(id),
-        FOREIGN KEY (folderId) REFERENCES Folder(id)
+        FOREIGN KEY (environmentId) REFERENCES Environment(id) ON DELETE RESTRICT,
+        FOREIGN KEY (testDataFileId) REFERENCES TestDataFile(id) ON DELETE RESTRICT,
+        FOREIGN KEY (folderId) REFERENCES Folder(id) ON DELETE RESTRICT
     )
-    `);
+  `);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS RunDataTag (
@@ -53,8 +53,8 @@ db.serialize(() => {
         tagId INTEGER,
 
         PRIMARY KEY (runDataId, tagId),
-        FOREIGN KEY (runDataId) REFERENCES RunData(id),
-        FOREIGN KEY (tagId) REFERENCES Tag(id)
+        FOREIGN KEY (runDataId) REFERENCES RunData(id) ON DELETE RESTRICT,
+        FOREIGN KEY (tagId) REFERENCES Tag(id) ON DELETE RESTRICT
     )
-    `);
+  `);
 });
