@@ -1,0 +1,67 @@
+Todos los delete, deberian tener como respuesta: staus:"deleted"
+
+Todos los put, deberian tener como respuesta: staus:"updated"
+
+Todos los post, deberian tener como respuesta: staus:"created"
+
+las key de los tags deberiasn ser sus propios nombres?
+
+
+chat gpt: https://chatgpt.com/share/682f05b1-d68c-8006-8097-3b2fa1c1884f
+
+
+
+
+Claro, Ariel. Aquí tienes cómo se llamarían los endpoints de RunDataTag en Postman (o cualquier cliente REST) junto con sus cuerpos (body) cuando se requiere:
+
+📌 Base URL
+bash
+Copiar
+Editar
+http://localhost:3000/rundatatag
+🔹 1. GET All associations
+Método: GET
+URL: http://localhost:3000/rundatatag
+Body: ❌ No necesita body
+
+🔹 2. GET Tags por RunData ID
+Método: GET
+URL: http://localhost:3000/rundatatag/rundata/:runDataId
+Ejemplo:
+
+bash
+Copiar
+Editar
+http://localhost:3000/rundatatag/rundata/1
+Body: ❌ No necesita body
+
+🔹 3. POST Crear asociación RunData ↔ Tag
+Método: POST
+URL: http://localhost:3000/rundatatag
+Body (JSON):
+
+json
+Copiar
+Editar
+{
+  "runDataId": 1,
+  "tagId": 2
+}
+🔹 4. DELETE Eliminar asociación RunData ↔ Tag
+Método: DELETE
+URL: http://localhost:3000/rundatatag
+Body (JSON):
+
+json
+Copiar
+Editar
+{
+  "runDataId": 1,
+  "tagId": 2
+}
+🧠 Notas:
+Asegúrate de que los IDs existan en las tablas RunData y Tag antes de intentar crear o borrar la relación.
+
+El Content-Type en los headers debe ser application/json.
+
+¿Quieres que agregue un endpoint para listar los RunData asociados a un tag específico también?
